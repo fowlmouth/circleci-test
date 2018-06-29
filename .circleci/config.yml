@@ -7,5 +7,10 @@ jobs:
     steps:
 			- run: git clone --depth 1 --recurse_submodules git@github.com:StrongAI/strongai.git
 			- run: git clone --depth 1 git@github.com:StrongAI/xcode.git
-			- run: "xcodebuild -project xcode/Intelligence.xcodeproj -target StrongAI•Type•Union•Test"
-			- run: "./xcode/build/Release/StrongAI•Type•Union•Test"
+			- run: xcodebuild -project xcode/Intelligence.xcodeproj -target StrongAI•Type•Union•Test
+			- run: ./xcode/build/Release/StrongAI•Type•Union•Test
+workflows:
+  version: 2
+  test:
+      jobs:
+        - build-and-test
